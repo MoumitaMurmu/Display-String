@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Input</title>
+</head>
+<body>
+    <h1>
+        Take an input from the user using an input HTML element, which becomes the current initial string- Display the 
+        current value of our string inside an ‘H3’ element- Implement the following 4 functionalities: - Find and replace: Take 
+        the string to be found, and the replacement value, as a string input, find it in our current string, and replace it. - 
+        toUpperCase: Clicking this button makes our string uppercase - toLowerCase: Clicking this button makes our string 
+        lowercase - concat: Takes a string input and concatenates it to our current string on the press of a button
+    </h1>
+    <br> 
+    <input type="text" id="input" placeholder="Enter initial string"/>
+    <input type="text" id="find" placeholder="Find initial string"/>
+    <input type="text" id="replace" placeholder="Replace initial string"/>
+    <button onclick="displayString()">Display String</button>
+    <button onclick="findAndReplace()">Find And Replace</button>
+    <button onclick="convertToUpperCase()">To Uppercase</button>
+    <button onclick="convertToLowerCase()">To Lowercase</button>
+    <input type="text" id="concatInput" placeholder="String to Concatenate"/>
+    <button onclick="concatenateString()">Concatenate</button>
+    <h3 id="result"></h3>
+    
+    <script>
+        let currentString = "";
+    
+        function displayString(){
+            currentString = document.getElementById('input').value;
+            document.getElementById('result').innerHTML =  currentString;
+        }
+    
+        function findAndReplace(){
+            let findString = document.getElementById('find').value;
+            let replaceString = document.getElementById('replace').value;
+            currentString = currentString.replace(findString, replaceString);
+            document.getElementById('result').innerHTML = currentString;
+        }
+    
+        function convertToUpperCase(){
+            currentString = currentString.toUpperCase();
+            document.getElementById('result').innerHTML = currentString;
+        }
+    
+        function convertToLowerCase(){
+            currentString = currentString.toLowerCase();
+            document.getElementById('result').innerHTML = currentString;
+        }
+    
+        function concatenateString(){
+            let concatString = document.getElementById('concatInput').value;
+            currentString += ` ${concatString}`;
+            document.getElementById('result').innerHTML = currentString;
+        }
+    </script>
+    
+</body>
+</html>
